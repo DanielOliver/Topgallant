@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy_ecs_tilemap::*;
 use bevy_ecs_tilemap::map::*;
 use bevy_ecs_tilemap::prelude::*;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 mod helpers;
 
@@ -104,6 +105,7 @@ fn main() {
             ..default()
         }))
         .add_plugin(bevy_ecs_tilemap::TilemapPlugin)
+        .add_plugin(WorldInspectorPlugin::new())
         .add_startup_system(startup)
         .add_system(helpers::camera::movement)
         .run();
